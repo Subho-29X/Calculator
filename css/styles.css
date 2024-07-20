@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #121212;
+  font-family: "Courier New", Courier, monospace;
+  color: #00ff00;
+}
+
+.calculator {
+  background: #1d1d1d;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5);
+  width: 320px;
+  overflow: hidden;
+}
+
+.calculator-display {
+  background: #000;
+  color: #00ff00;
+  font-size: 2.5rem;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: right;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+  }
+  to {
+    text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+  }
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 20px;
+  background: #212121;
+}
+
+.btn {
+  background: #333;
+  border: none;
+  padding: 20px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  color: #00ff00;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #555;
+  transform: scale(1.1);
+}
+
+.btn-zero {
+  grid-column: span 2;
+}
+
+.btn[data-action="operator"] {
+  background: #004d00;
+  color: #00ff00;
+}
+
+.btn[data-action="operator"]:hover {
+  background: #007300;
+}
+
+.btn[data-action="clear"],
+.btn[data-action="delete"] {
+  background: #4d0000;
+  color: #ff0000;
+}
+
+.btn[data-action="clear"]:hover,
+.btn[data-action="delete"]:hover {
+  background: #730000;
+}
+
+.btn[data-action="calculate"] {
+  background: #004d4d;
+  color: #00ffff;
+}
+
+.btn[data-action="calculate"]:hover {
+  background: #007373;
+}
+
+@keyframes buttonPress {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.95);
+  }
+}
+.btn {
+  background: #333;
+  border: none;
+  padding: 20px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  color: #00ff00;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 5px #00ff00;
+}
+
+.btn:hover {
+  background: #555;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00ff00;
+}
+
+.btn.pressed {
+  animation: buttonPress 0.15s ease-out;
+}
+
+@keyframes buttonPress {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 20px #00ff00;
+  }
+  to {
+    transform: scale(0.9);
+    box-shadow: 0 0 10px #00ff00;
+  }
+}
